@@ -1,0 +1,80 @@
+/* ==========================================
+   ■■■ 실행 흐름의 컨트롤(제어문) ■■■
+   - 반복문(while문) 실습
+=============================================*/
+
+// ○ 사용자로부터 임의의 정수를 입력받아
+//	해당 값의 자릿수를 출력하는 프로그램을 구현한다.
+
+// 실행 예)
+// 임의의 정수 입력: 397564
+// >> 397564의 자릿수는 6
+// 계속하려면 아무 키나 누르세요...
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.IOException;
+
+
+public class Test052{
+	public static void main(String[] args) throws IOException
+	{
+		
+		// [내 풀이]
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		int n;
+		int temp = 0;
+		int cnt = 1;
+		
+		System.out.print("임의의 정수 입력 : ");
+		n = Integer.parseInt(br.readLine());
+		
+		temp = n;
+
+		while(temp>=10)
+		{
+			cnt++;
+			temp /= 10;
+			
+		}
+		
+		System.out.printf("%d의 자릿수는 %d\n",n, cnt);
+		
+		
+		//-------------------------------------------------------------------------
+		/*
+		// [모범 풀이]
+		
+		// 주요 변수 선언 및 초기화
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		int n;				//-- 사용자의 입력값을 담아낼 변수
+		int len;			//-- 입력받은 정수의 자릿수를 담아낼 변수
+		int temp;			//-- 사용자의 입력값을 담아낼 임시 저장 변수 
+		
+		// 연산 및 처리
+		System.out.print("임의의 정수 입력 : ");
+		n = Integer.parseInt(br.readLine());
+		
+		temp = n;
+		len = 1;
+		
+		while(temp >= 10)		// 397654 39765 3976 397  39   3
+		{ 		
+			len++;			   //  1	   2	  3	  4    5   6
+			temp /= 10;		   //39765	 3976   397   39   3   0
+		}
+		
+		//결과 출력
+		System.out.printf(">> %d의 자릿수는 %d\n",n,len);
+		*/
+	}
+}
+//실행 결과
+
+/*
+임의의 정수 입력 : 247910
+247910의 자릿수는 6
+계속하려면 아무 키나 누르십시오 . . .
+*/
