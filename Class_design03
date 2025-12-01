@@ -1,0 +1,112 @@
+/* ==========================================
+   ■■■ 클래스와 인스턴스 ■■■
+=============================================*/
+
+// ○ 사용자로부터 임의의 두 정수와 연산자를 입력받아
+// 해당 연산을 수행하는 프로그램을 구현한다.
+// 단, 클래스와 인스턴스의 개념을 활용하여 작성할 수 있도록 한다.
+// (→ 클래스명: Calculate)
+// 또한, 나눗셈 연산은 편의상 정수 형태로 처리한다.
+
+// 실행 예)
+// 임의의 두 정수 입력(공백 구분): 10 5 
+// 임의의 연산자 입력(+ - * /): +
+
+// >> 10 + 5 = 15
+// 계속하려면 아무 키나 누르세요...
+
+import java.util.Scanner;
+import java.io.IOException;
+
+class Calculate{
+	
+	// 주요 변수 선언(→ Calculate 객체의 속성 구성)
+	int a, b;			//-- 사용자로부터 입력받은 두 정수를 담아낼 변수
+	char op;			//-- 사용자로부터 입력받은 연산자를 담아낼 변수
+
+	
+	//입력 메소드 정의
+	void input() throws IOException {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("임의의 두 정수 입력(공백 구분) :");
+		a = sc.nextInt();
+		b = sc.nextInt();
+	
+		System.out.print("임의의 연산자 입력(+ - * /): ");
+		//op = sc.next().charAt(0);
+		op = (char)System.in.read();
+	}
+	
+	//연산 메소드 정의
+	int calc(){
+		int result = 0;
+	
+		if(op=='+'){
+			result = a + b;
+		}else if(op=='-'){
+			result = a - b;
+		}else if(op=='*'){
+			result = a * b;
+		}else if(op=='/'){
+			result = a / b;
+		}
+		
+		/*
+		switch(op){
+			case '+': result = a + b; break;
+			case '-': result = a - b; break;
+			case '*': result = a * b; break;
+			case '/': result = a / b; break;
+			default: result = -1;
+		}
+		*/
+		return result;
+	}
+	
+	
+	//출력 메소드 정의
+	void print(int num){
+		System.out.printf(">> %d %c %d = %d\n",a,op,b,num);
+	}
+}
+
+// main() 메소드를 포함하는 외부의 다른 클래스
+public class Test077{
+	public static void main(String[] args) throws IOException 
+	{
+		//Calculate 클래스 기반의 인스턴스(객체) 생성
+		Calculate ob = new Calculate();
+		
+		ob.input();
+		int num = ob.calc();
+		ob.print(num);
+	}
+}
+// 실행 결과
+/*
+임의의 두 정수 입력(공백 구분) :54 32
+임의의 연산자 입력(+ - * /): +
+>> 54 + 32 = 86
+계속하려면 아무 키나 누르십시오 . . .
+*/
+
+/*
+임의의 두 정수 입력(공백 구분) :685 875
+임의의 연산자 입력(+ - * /): -
+>> 685 - 875 = -190
+계속하려면 아무 키나 누르십시오 . . .
+*/
+
+/*
+임의의 두 정수 입력(공백 구분) :12 6
+임의의 연산자 입력(+ - * /): *
+>> 12 * 6 = 72
+계속하려면 아무 키나 누르십시오 . . .
+*/
+
+/*
+임의의 두 정수 입력(공백 구분) :650 4
+임의의 연산자 입력(+ - * /): /
+>> 650 / 4 = 162
+계속하려면 아무 키나 누르십시오 . . .
+*/
