@@ -1,0 +1,67 @@
+07-2. 생성자(Constructor)
+서로 다른 인스턴스의 생성은, 인스턴스 변수와 초기화라는 문제를 고민하게 한다.
+
+class FruitSeller
+{
+	int numOfApple;
+	int myMoney;
+	final int APPLE_PRICE;
+	
+	public void initMembers(int money, int appleNum, int price){
+		myMoney = money;
+		numOfApple = appleNum;
+		APPLE_PRICE = price;    //final변수 초기화 불가능
+	}
+
+  public FruitSeller(int money, int appleNum, int price){  // 생성자
+    myMoney = money;
+		numOfApple = appleNum;
+		APPLE_PRICE = price;    //final변수 초기화 가능
+  }
+}
+
+FruitSeller fs1 = new FruitSeller();
+fs1.numOfApple = 30;
+fs1.myMoney = 10000;
+fs1.APPLE_PRICE = 1500;
+
+FruitSeller fs2 = new FruitSeller();
+fs2.numOfApple = 20;
+fs2.myMoney = 20000;
+fs2.APPLE_PRICE = 1000;
+
+fs1.initMembers(30,10000,1500);
+fs.initMembers(20,15000,1000);
+
+FruitSeller fs1 = new FruitSeller(10000, 30, 1500);
+FruitSeller fs1 = new FruitSeller;
+                      FruitSeller(); → 생성자
+FruitSeller fs2 = new FruitSeller(20000, 20, 1000);
+
+○ 딱 한 번만 호출되는 메소드 → 생성자
+- 생성자의 조건: 클래스의 이름과 동일한 이름의 메소드
+              반환형이 선언되어 있지 않으면서, 반환하지 않는 메소드(리턴자료형이 없음)
+              ※ 자바 인스턴스 생성 시 생성자는 반드시 호출된다.
+              생성자 내에서는 final멤버 변수의 초기화가 가능하다.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
