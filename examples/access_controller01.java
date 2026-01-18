@@ -93,7 +93,7 @@ class WeekDay
 }
 
 
-public class Test103{
+public class access_controller01{
 	public static void main(String[] args){
 	
 		WeekDay ob = new WeekDay();
